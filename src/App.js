@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { FormComponent, FormContainer } from "react-authorize-net";
+
+let clientKey = "SIMON";
+let apiLoginId = "645VpWBk6C";
 
 function App() {
+  const onErrorHandler = (response) => {
+    console.log("onErrorHandler", response);
+  };
+
+  const onSuccessHandler = (response) => {
+    console.log("onSuccessHandler", response);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <FormContainer
+      environment="sandbox"
+      onError={onErrorHandler}
+      onSuccess={onSuccessHandler}
+      amount={23}
+      component={FormComponent}
+      clientKey={clientKey}
+      apiLoginId={apiLoginId}
+    />
   );
 }
 
