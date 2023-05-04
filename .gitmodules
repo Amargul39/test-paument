@@ -1,0 +1,3 @@
+[submodule "submodule-dir"]
+	path = submodule-dir
+	url = https://github.com/Amargul39/react-authorize-net-example.git
